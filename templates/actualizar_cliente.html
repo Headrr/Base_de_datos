@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    
+    
+    <link href="{{ url_for('static', filename='css/bootstrap2.min.css') }}" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='css/signin.css') }}" rel="stylesheet">
+
+</head>
+
+<body class="text-center"> 
+    
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <img src="static/imagenes/bootstrap-solid.svg" alt="" width="50" height="24">   
+        <a class="navbar-brand" href="/.">BOTES</a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        </div>
+        <a class="navbar-brand" href="{{ url_for('new_cliente') }}"> Registrarse </a>
+    </nav>                       
+  
+    <div class="container">        
+        <div class="row">
+            <div class="col">
+                <H2 CENTER>NÓMINA DE CLIENTES</H1>
+                <BR>
+                    <BR>
+                        <BR>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>RUT</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Correo</th>
+                            <th>Nacionalidad</th>
+                            <th>Contraseña</th>
+                            <th colspan="6">Acciones</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for CLIENTE in filas %}
+                        <tr>
+                            <td> {{ CLIENTE [0] }}</td>
+                            <td> {{ CLIENTE [1] }}</td>
+                            <td> {{ CLIENTE [2] }}</td>
+                            <td> {{ CLIENTE [3] }}</td>
+                            <td> {{ CLIENTE [4] }}</td>
+                            <td> {{ CLIENTE [5] }}</td>
+                            <td>
+
+                                <td><button class="btn btn-success navbar-btn">Modificar</button></td>
+                                <td><button class="btn btn-danger navbar-btn">Eliminar</button></td>
+                                <td><button class="btn btn-primary navbar-btn">Ver reservas</button></td>
+                                                       
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+
+
+        <div id="wrapper">
+            <form action="" method="post">
+                <br>
+                <br>
+                <fieldset>
+                   
+                    <legend>Actualizar cliente</legend>
+                    <div>
+                        
+                    <input type="text" name="rut" placeholder="RUT"/>
+                    </div>
+                    <div>
+                        <input type="text" name="nombre" placeholder="Nombre"/>
+                    </div>
+                    <div>
+                        <input type="text" name="apellido" placeholder="Apellido"/>
+                    </div>
+                    <div>
+                        <input type="text" name="correo" placeholder="Mail"/>
+                    </div>
+                    <div>
+                        <input type="text" name="nacionalidad" placeholder="Nacionalidad"/>
+                    </div>
+                    <div>
+                        <input type="password" name="password" placeholder="Contraseña"/>
+                    </div>
+                        
+                    <input type="submit" name="submit" value="Actualizar"/>
+                </fieldset>    
+            </form>
+            <form>
+                
+                    {% if mensaje and salida %}
+                
+                    <h4>Mensaje: {{mensaje.getvalue()}}</h2>
+                    <h5>Salida: {{salida.getvalue()}}</h3>
+                
+                    {% endif %}
+                
+            </form>
+        </div>
+</body>
+
+</html>
+
+

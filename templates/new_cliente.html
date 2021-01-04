@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd"
+    >
+<html lang="es">
+<head>
+    
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registro cliente</title>
+       
+        <link href="{{ url_for('static', filename='css/bootstrap2.min.css') }}" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            
+        <link href="{{ url_for('static', filename='css/signin.css') }}" rel="stylesheet">
+
+     
+</head>
+
+<body class="text-center">
+    <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <img src="static/imagenes/bootstrap-solid.svg" alt=" " width="50 " height="24 ">   
+    <br>
+    <a class="navbar-brand" href="index2"> BOTES </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">        
+            <li class="nav-item">
+              <a class="navbar-brand" href="{{ url_for('lista_yates') }}"> Catálogo yates </a>
+            </li>              
+          </ul>    
+    </div>
+
+    <a class="navbar-brand" href="{{ url_for('autenticacion.iniciar_sesion') }}"> Iniciar Sesion </a>
+    </nav>
+  
+    </header> 
+    
+    <br>
+    <br>
+    <br>
+
+    
+        
+        
+        <form class="form-signin"  action=" " method="post">
+            <br>
+            
+        <img class="mb-4" src="static/imagenes/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal"> Registro de clientes</h1>
+      
+    
+
+        <label for="rut" class="sr-only">Rut</label>
+        <input type="text" id="rut" class="form-control" placeholder="RUT" required autofocus name="rut">
+    
+        <label for="nombre" class="sr-only">Nombre</label>
+        <input type="text" id="pass" class="form-control" placeholder="Nombre" required autofocus name="nombre">
+
+        <label for="apellido" class="sr-only">Nombre</label>
+        <input type="text" id="pass" class="form-control" placeholder="Apellido" required autofocus name="apellido">
+
+        <label for="correo" class="sr-only">Nombre</label>
+        <input type="text" id="pass" class="form-control" placeholder="Mail" required autofocus name="correo">
+
+        <label for="nacionalidad" class="sr-only">Nombre</label>
+        <input type="text" id="pass" class="form-control" placeholder="Nacionalidad" required autofocus name="nacionalidad">
+
+        <label for="password" class="sr-only">Nombre</label>
+        <input type="text" id="pass" class="form-control" placeholder="Contraseña" required autofocus name="password">
+
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" name="submit">Registrar</button>
+    
+        <div>
+            {% include "errores.html" %}
+        </div>
+    
+        <div>
+            
+            {% if mensaje and salida %}
+        
+                <div  style="padding:10px 10px;" center>  
+                    <div class="alert alert-info" role="alert"> <strong>Mensaje:</strong> {{mensaje.getvalue()}}</div>
+                </div>
+                
+                <div  style="padding:10px 10px;" center>  
+                    <div class="alert alert-info" role="alert"> <strong>Salida:</strong> {{salida.getvalue()}}</div>
+                </div>
+            {% endif %}
+        
+            </div>
+      </form>
+
+      
+</body>
+
+
+
+
+</html>

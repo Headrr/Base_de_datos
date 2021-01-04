@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    
+    
+    <link href="{{ url_for('static', filename='css/bootstrap2.min.css') }}" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='css/signin.css') }}" rel="stylesheet">
+
+</head>
+
+<body class="text-center"> 
+    
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <img src="static/imagenes/bootstrap-solid.svg" alt="" width="50" height="24">   
+        <a class="navbar-brand" href="{{ url_for('index2') }}">BOTES</a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        </div>
+        <a class="navbar-brand" href="{{ url_for('new_cliente') }}"> Registrarse </a>
+
+      
+      </nav>
+      
+      
+                     
+
+      
+    <div class="container">
+       
+        <div class="row">           
+            <div class="col">                          
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <br><br><br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <H2 CENTER>LISTA YATES</H1>
+                
+                <table class="table table-striped">
+                    <thead>
+                        
+                        <tr>
+                            
+                            <th>N° CHASIS</th>
+                            <th>TIPO</th>
+                            <th>MARCA</th>
+                            <th>CLASE</th>
+                            <th>CAPACIDAD</th>
+                            <th>DISPONIBILIDAD</th>
+                                                                           
+                                                       
+                        </tr>
+                     
+                    </thead>
+                    <tbody>
+
+                        {% for YATE in filas %}
+                        <tr>
+                            <td> {{ YATE [0] }}</td>                        
+                            <td> {{ YATE [1] }}</td>
+                            <td> {{ YATE [2] }}</td>
+                            <td> {{ YATE [3] }}</td>
+                            <td> {{ YATE [4] }}</td>
+                            <td> {{ YATE [5] }}</td>
+                            
+                        </tr>
+                        <tr>
+                            <td colspan="6">
+                                <button type="button" class="btn btn-primary navbar-btn">Reservar</button>
+                            </td>
+                            
+                        </tr>    
+
+                        {% endfor %}
+                        </tr>
+
+                        {% block scripts %}
+       
+                            <script> function yate(){}</script>
+                        {% endblock %}
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+        {# <th colspan="6">Acciones</th> #}
+</body>
+
+</html>

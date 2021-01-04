@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
+    
+    
+    <link href="{{ url_for('static', filename='css/bootstrap2.min.css') }}" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='css/signin.css') }}" rel="stylesheet">
+
+</head>
+<body class="text-center">
+  <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+        {% block navbar %}
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+                <img src="static/imagenes/bootstrap-solid.svg" alt="" width="50" height="24">   
+            <a class="navbar-brand" href="index2">BOTES</a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+              <ul class="navbar-nav mr-auto">                
+                <li class="nav-item">
+                  <a class="navbar-brand" href="{{ url_for('lista_yates') }}"> Catálogo yates </a>
+                </li>              
+              </ul>
+            </div>
+            <a class="navbar-brand" href="{{ url_for('new_cliente') }}"> Registrarse </a>
+          </nav>
+        {% endblock %}
+      
+    </header>
+
+    <form class="form-signin"  action="{{ url_for('autenticacion.iniciar_sesion') }}" method="post">
+    <img class="mb-4" src="static/imagenes/bootstrap-solid.svg" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal"> Login </h1>
+
+
+    <label for="rut" class="sr-only">Email</label>
+    <input type="text" id="rut" class="form-control" placeholder="RUT" required autofocus name="rut">
+
+    <label for="pass" class="sr-only">Contraseña</label>
+    <input type="password" id="pass" class="form-control" placeholder="Contraseña" required autofocus name="pass">
+
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Recordar mis datos
+      </label>
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Conectarse</button>
+
+    <div>
+        {% include "errores.html" %}
+    </div>
+
+    <p class="mt-5 mb-3 text-muted">&copy; 2020-2021 </p>
+    <p class="mt-5 mb-3 text-muted"> Universidad Católica del Maule </p>
+
+ 
+  </form>
+
+
+</body>
+</html>

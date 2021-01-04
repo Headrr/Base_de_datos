@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botes</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/indice.css') }}">
+
+</head>
+<body>
+    {% if current_user.is_authenticated %}
+        {{ current_user.rut }}
+        <br>
+        <br>
+
+        <button type="button">Ir a mi perfil</button>
+        <br>
+        <br>
+        <a href="{{ url_for('autenticacion.cerrar_sesion') }}" >Cerrar sesion</a>
+    {% else %}
+
+        <a href="{{ url_for('autenticacion.iniciar_sesion') }}" >Iniciar sesion</a>
+
+    {% endif %}
+    
+    <br>
+
+    <script src="{{ url_for('static', filename='indice.js')}}"></script>
+</body>
+</html>

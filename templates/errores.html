@@ -1,0 +1,11 @@
+{% if errores|length > 0 %}
+
+    <ul>
+    {% for error in errores %}
+
+        <li class="error">{{ error }}</li>
+
+    {% endfor %}
+    </ul>
+
+{% endif %}
